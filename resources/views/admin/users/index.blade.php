@@ -1,14 +1,35 @@
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8">
-		<title>Document</title>
-	</head>
-	<body>
-	
-		<h1>It's working</h1>
+@extends('layouts.admin')
 
-	</body>
-</html>
+@section('content')
+<h1>Users</h1>
+@if('users')
+	<table class="table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+		<th>Role</th>
+		<th>Status</th>
+		<th>Created</th>
+		<th>Updated</th>
+      </tr>
+    </thead>
+    <tbody>
+	@foreach($users as $user)
+      <tr>
+        <td>{{$user->id}}</td>
+        <td>{{$user->name}}</td>
+        <td>{{$user->email}}</td>
+		<td>{{$user->role->name}}</td>
+		<td>{{$user->is_active == 1 ? 'Active' : 'Not Active'}}</td>
+		<td>{{$user->created_at->diffForHumans()}}</td>
+		<td>{{$user->updated_at->diffForHumans()}}</td>
+      </tr>
+	 @endforeach
+    </tbody>
+  </table>
+ @endif
+@endsection
 
 
