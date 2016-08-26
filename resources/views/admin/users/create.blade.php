@@ -19,7 +19,7 @@
 	</div>
 	
 	<div class="form-group">
-		{!! Form::label('photo_id', 'File') !!}
+		{!! Form::label('photo_id', 'Avatar') !!}
 		{!! Form::file('photo_id', ['class' => '']) !!}
 	</div>
 	
