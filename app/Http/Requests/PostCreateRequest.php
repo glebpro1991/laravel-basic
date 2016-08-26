@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use App\Http\Requests\Request;
 
-class UsersRequest extends Request
+class PostCreateRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,11 +24,12 @@ class UsersRequest extends Request
     public function rules()
     {
         return [
-			'name' => 'required',
-			'email' => 'required',
-			'is_active' => 'required',
-			'role_id' => 'required',
-			'password' => 'required',
+            
+			'category_id' => 'required',
+			'photo_id' => 'required',
+			'title' => 'required',
+			'body' => 'required'
+			
         ];
     }
 }
